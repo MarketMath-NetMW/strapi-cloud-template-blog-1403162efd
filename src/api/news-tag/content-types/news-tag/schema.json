@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_tags",
+  "info": {
+    "singularName": "news-tag",
+    "pluralName": "news-tags",
+    "displayName": "News tag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tag": {
+      "type": "string",
+      "required": true
+    },
+    "news_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-item.news-item",
+      "inversedBy": "news_tags"
+    }
+  }
+}

@@ -996,6 +996,82 @@ export interface ApiNetMwTestNewsPostNetMwTestNewsPost
   };
 }
 
+export interface ApiNewsItemNewsItem extends Schema.CollectionType {
+  collectionName: 'news_items';
+  info: {
+    singularName: 'news-item';
+    pluralName: 'news-items';
+    displayName: 'News item';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Content: Attribute.Blocks;
+    PublishDate: Attribute.Date & Attribute.Required;
+    Image: Attribute.Media;
+    slug: Attribute.UID<'api::news-item.news-item', 'Title'>;
+    news_tags: Attribute.Relation<
+      'api::news-item.news-item',
+      'manyToMany',
+      'api::news-tag.news-tag'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-item.news-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-item.news-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNewsTagNewsTag extends Schema.CollectionType {
+  collectionName: 'news_tags';
+  info: {
+    singularName: 'news-tag';
+    pluralName: 'news-tags';
+    displayName: 'News tag';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Tag: Attribute.String & Attribute.Required;
+    news_items: Attribute.Relation<
+      'api::news-tag.news-tag',
+      'manyToMany',
+      'api::news-item.news-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-tag.news-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-tag.news-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1020,6 +1096,8 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::net-mw-test-news-post.net-mw-test-news-post': ApiNetMwTestNewsPostNetMwTestNewsPost;
+      'api::news-item.news-item': ApiNewsItemNewsItem;
+      'api::news-tag.news-tag': ApiNewsTagNewsTag;
     }
   }
 }
