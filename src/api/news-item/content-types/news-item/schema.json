@@ -35,7 +35,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "Title"
+      "targetField": "Title",
+      "required": true
     },
     "news_tags": {
       "type": "relation",

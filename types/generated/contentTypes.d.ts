@@ -1012,7 +1012,8 @@ export interface ApiNewsItemNewsItem extends Schema.CollectionType {
     Content: Attribute.Blocks;
     PublishDate: Attribute.Date & Attribute.Required;
     Image: Attribute.Media;
-    slug: Attribute.UID<'api::news-item.news-item', 'Title'>;
+    slug: Attribute.UID<'api::news-item.news-item', 'Title'> &
+      Attribute.Required;
     news_tags: Attribute.Relation<
       'api::news-item.news-item',
       'manyToMany',
