@@ -15,9 +15,6 @@
     "Title": {
       "type": "string"
     },
-    "Content": {
-      "type": "blocks"
-    },
     "PublishDate": {
       "type": "date",
       "required": true
@@ -43,6 +40,9 @@
       "relation": "manyToMany",
       "target": "api::news-tag.news-tag",
       "mappedBy": "news_items"
+    },
+    "Content": {
+      "type": "richtext"
     }
   }
 }
