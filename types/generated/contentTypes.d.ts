@@ -1010,7 +1010,6 @@ export interface ApiNewsItemNewsItem extends Schema.CollectionType {
   attributes: {
     Title: Attribute.String;
     PublishDate: Attribute.Date & Attribute.Required;
-    Image: Attribute.Media;
     slug: Attribute.UID<'api::news-item.news-item', 'Title'> &
       Attribute.Required;
     news_tags: Attribute.Relation<
@@ -1019,6 +1018,7 @@ export interface ApiNewsItemNewsItem extends Schema.CollectionType {
       'api::news-tag.news-tag'
     >;
     Content: Attribute.RichText;
+    Cover: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
