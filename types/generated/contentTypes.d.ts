@@ -958,44 +958,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
 }
 
-export interface ApiNetMwTestNewsPostNetMwTestNewsPost
-  extends Schema.CollectionType {
-  collectionName: 'net_mw_test_news_posts';
-  info: {
-    singularName: 'net-mw-test-news-post';
-    pluralName: 'net-mw-test-news-posts';
-    displayName: 'NetMW test news post';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String;
-    Content: Attribute.RichText;
-    Date: Attribute.DateTime;
-    slug: Attribute.UID<
-      'api::net-mw-test-news-post.net-mw-test-news-post',
-      'Title'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::net-mw-test-news-post.net-mw-test-news-post',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::net-mw-test-news-post.net-mw-test-news-post',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiNewsItemNewsItem extends Schema.CollectionType {
   collectionName: 'news_items';
   info: {
@@ -1096,7 +1058,6 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
-      'api::net-mw-test-news-post.net-mw-test-news-post': ApiNetMwTestNewsPostNetMwTestNewsPost;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::news-tag.news-tag': ApiNewsTagNewsTag;
     }
