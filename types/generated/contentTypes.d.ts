@@ -973,7 +973,7 @@ export interface ApiNetMwSystemMessageNetMwSystemMessage
   attributes: {
     Message: Attribute.Text;
     PublishDate: Attribute.Date & Attribute.Required;
-    Active: Attribute.Boolean;
+    Active: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
