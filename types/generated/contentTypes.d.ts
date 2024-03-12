@@ -958,6 +958,40 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
 }
 
+export interface ApiNetMwSystemMessageNetMwSystemMessage
+  extends Schema.CollectionType {
+  collectionName: 'net_mw_system_messages';
+  info: {
+    singularName: 'net-mw-system-message';
+    pluralName: 'net-mw-system-messages';
+    displayName: 'NetMW system message';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Message: Attribute.Text;
+    PublishDate: Attribute.Date & Attribute.Required;
+    Active: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::net-mw-system-message.net-mw-system-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::net-mw-system-message.net-mw-system-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewsItemNewsItem extends Schema.CollectionType {
   collectionName: 'news_items';
   info: {
@@ -1058,6 +1092,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::net-mw-system-message.net-mw-system-message': ApiNetMwSystemMessageNetMwSystemMessage;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::news-tag.news-tag': ApiNewsTagNewsTag;
     }

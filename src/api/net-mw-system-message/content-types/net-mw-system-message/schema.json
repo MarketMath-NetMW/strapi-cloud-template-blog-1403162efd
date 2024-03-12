@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "net_mw_system_messages",
+  "info": {
+    "singularName": "net-mw-system-message",
+    "pluralName": "net-mw-system-messages",
+    "displayName": "NetMW system message",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Message": {
+      "type": "text"
+    },
+    "PublishDate": {
+      "type": "date",
+      "required": true
+    },
+    "Active": {
+      "type": "boolean"
+    }
+  }
+}
