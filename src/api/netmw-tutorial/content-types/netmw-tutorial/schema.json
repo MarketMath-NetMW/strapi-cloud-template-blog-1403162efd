@@ -4,7 +4,8 @@
   "info": {
     "singularName": "netmw-tutorial",
     "pluralName": "netmw-tutorials",
-    "displayName": "NetMW tutorial"
+    "displayName": "NetMW tutorial",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,14 @@
       "relation": "manyToMany",
       "target": "api::netmw-tutorial-tag.netmw-tutorial-tag",
       "mappedBy": "netmw_tutorials"
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

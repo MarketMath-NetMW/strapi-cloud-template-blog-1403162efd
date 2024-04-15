@@ -1018,6 +1018,7 @@ export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
     singularName: 'netmw-tutorial';
     pluralName: 'netmw-tutorials';
     displayName: 'NetMW tutorial';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1030,6 +1031,7 @@ export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
       'manyToMany',
       'api::netmw-tutorial-tag.netmw-tutorial-tag'
     >;
+    Thumbnail: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
