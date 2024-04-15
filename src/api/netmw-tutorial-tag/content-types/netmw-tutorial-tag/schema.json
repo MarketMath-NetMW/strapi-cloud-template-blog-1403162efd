@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "netmw_tutorial_tags",
+  "info": {
+    "singularName": "netmw-tutorial-tag",
+    "pluralName": "netmw-tutorial-tags",
+    "displayName": "NetMW tutorial tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tag": {
+      "type": "string"
+    },
+    "netmw_tutorials": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::netmw-tutorial.netmw-tutorial",
+      "inversedBy": "netmw_tutorial_tags"
+    }
+  }
+}

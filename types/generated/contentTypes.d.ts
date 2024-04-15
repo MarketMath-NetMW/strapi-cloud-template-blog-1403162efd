@@ -1012,6 +1012,78 @@ export interface ApiNetMwSystemMessageNetMwSystemMessage
   };
 }
 
+export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
+  collectionName: 'netmw_tutorials';
+  info: {
+    singularName: 'netmw-tutorial';
+    pluralName: 'netmw-tutorials';
+    displayName: 'NetMW tutorial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Content: Attribute.RichText & Attribute.Required;
+    netmw_tutorial_tags: Attribute.Relation<
+      'api::netmw-tutorial.netmw-tutorial',
+      'manyToMany',
+      'api::netmw-tutorial-tag.netmw-tutorial-tag'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::netmw-tutorial.netmw-tutorial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::netmw-tutorial.netmw-tutorial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNetmwTutorialTagNetmwTutorialTag
+  extends Schema.CollectionType {
+  collectionName: 'netmw_tutorial_tags';
+  info: {
+    singularName: 'netmw-tutorial-tag';
+    pluralName: 'netmw-tutorial-tags';
+    displayName: 'NetMW tutorial tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Tag: Attribute.String;
+    netmw_tutorials: Attribute.Relation<
+      'api::netmw-tutorial-tag.netmw-tutorial-tag',
+      'manyToMany',
+      'api::netmw-tutorial.netmw-tutorial'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::netmw-tutorial-tag.netmw-tutorial-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::netmw-tutorial-tag.netmw-tutorial-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewsItemNewsItem extends Schema.CollectionType {
   collectionName: 'news_items';
   info: {
@@ -1113,6 +1185,8 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::net-mw-system-message.net-mw-system-message': ApiNetMwSystemMessageNetMwSystemMessage;
+      'api::netmw-tutorial.netmw-tutorial': ApiNetmwTutorialNetmwTutorial;
+      'api::netmw-tutorial-tag.netmw-tutorial-tag': ApiNetmwTutorialTagNetmwTutorialTag;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::news-tag.news-tag': ApiNewsTagNewsTag;
     }
