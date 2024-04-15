@@ -1012,6 +1012,42 @@ export interface ApiNetMwSystemMessageNetMwSystemMessage
   };
 }
 
+export interface ApiNetMwTutorialCategoryNetMwTutorialCategory
+  extends Schema.CollectionType {
+  collectionName: 'net_mw_tutorial_categories';
+  info: {
+    singularName: 'net-mw-tutorial-category';
+    pluralName: 'net-mw-tutorial-categories';
+    displayName: 'NetMW tutorial category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Category: Attribute.String & Attribute.Required;
+    netmw_tutorials: Attribute.Relation<
+      'api::net-mw-tutorial-category.net-mw-tutorial-category',
+      'oneToMany',
+      'api::netmw-tutorial.netmw-tutorial'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::net-mw-tutorial-category.net-mw-tutorial-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::net-mw-tutorial-category.net-mw-tutorial-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
   collectionName: 'netmw_tutorials';
   info: {
@@ -1032,6 +1068,11 @@ export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
       'api::netmw-tutorial-tag.netmw-tutorial-tag'
     >;
     Thumbnail: Attribute.Media & Attribute.Required;
+    netmw_tutorial_category: Attribute.Relation<
+      'api::netmw-tutorial.netmw-tutorial',
+      'manyToOne',
+      'api::net-mw-tutorial-category.net-mw-tutorial-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1187,6 +1228,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::net-mw-system-message.net-mw-system-message': ApiNetMwSystemMessageNetMwSystemMessage;
+      'api::net-mw-tutorial-category.net-mw-tutorial-category': ApiNetMwTutorialCategoryNetMwTutorialCategory;
       'api::netmw-tutorial.netmw-tutorial': ApiNetmwTutorialNetmwTutorial;
       'api::netmw-tutorial-tag.netmw-tutorial-tag': ApiNetmwTutorialTagNetmwTutorialTag;
       'api::news-item.news-item': ApiNewsItemNewsItem;

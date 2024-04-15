@@ -33,6 +33,12 @@
       "type": "media",
       "multiple": false,
       "required": true
+    },
+    "netmw_tutorial_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::net-mw-tutorial-category.net-mw-tutorial-category",
+      "inversedBy": "netmw_tutorials"
     }
   }
 }
