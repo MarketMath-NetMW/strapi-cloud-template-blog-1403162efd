@@ -27,18 +27,23 @@
       "mappedBy": "netmw_tutorials"
     },
     "Thumbnail": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "netmw_tutorial_category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::net-mw-tutorial-category.net-mw-tutorial-category",
       "inversedBy": "netmw_tutorials"
+    },
+    "Description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 200
     }
   }
 }

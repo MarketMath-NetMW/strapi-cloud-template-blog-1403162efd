@@ -1073,6 +1073,11 @@ export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
       'manyToOne',
       'api::net-mw-tutorial-category.net-mw-tutorial-category'
     >;
+    Description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
