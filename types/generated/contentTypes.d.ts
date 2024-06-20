@@ -800,10 +800,11 @@ export interface ApiAboutAbout extends Schema.SingleType {
     draftAndPublish: false;
   };
   attributes: {
-    title: Attribute.String;
+    Title: Attribute.String;
     blocks: Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
     >;
+    Description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1048,6 +1049,45 @@ export interface ApiNetMwTutorialCategoryNetMwTutorialCategory
   };
 }
 
+export interface ApiNetmwEventNetmwEvent extends Schema.CollectionType {
+  collectionName: 'netmw_events';
+  info: {
+    singularName: 'netmw-event';
+    pluralName: 'netmw-events';
+    displayName: 'NetMW Event';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
+    Content: Attribute.RichText & Attribute.Required;
+    ExternalUrl: Attribute.String;
+    SquarespaceSlug: Attribute.String & Attribute.Required;
+    Location: Attribute.String & Attribute.Required;
+    Date: Attribute.Date & Attribute.Required;
+    Language: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::netmw-event.netmw-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::netmw-event.netmw-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
   collectionName: 'netmw_tutorials';
   info: {
@@ -1234,6 +1274,7 @@ declare module '@strapi/types' {
       'api::global.global': ApiGlobalGlobal;
       'api::net-mw-system-message.net-mw-system-message': ApiNetMwSystemMessageNetMwSystemMessage;
       'api::net-mw-tutorial-category.net-mw-tutorial-category': ApiNetMwTutorialCategoryNetMwTutorialCategory;
+      'api::netmw-event.netmw-event': ApiNetmwEventNetmwEvent;
       'api::netmw-tutorial.netmw-tutorial': ApiNetmwTutorialNetmwTutorial;
       'api::netmw-tutorial-tag.netmw-tutorial-tag': ApiNetmwTutorialTagNetmwTutorialTag;
       'api::news-item.news-item': ApiNewsItemNewsItem;

@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "netmw_events",
+  "info": {
+    "singularName": "netmw-event",
+    "pluralName": "netmw-events",
+    "displayName": "NetMW Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Content": {
+      "type": "richtext",
+      "required": true
+    },
+    "ExternalUrl": {
+      "type": "string"
+    },
+    "SquarespaceSlug": {
+      "type": "string",
+      "required": true
+    },
+    "Location": {
+      "type": "string",
+      "required": true
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Language": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
