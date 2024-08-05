@@ -1065,7 +1065,6 @@ export interface ApiNetmwEventNetmwEvent extends Schema.CollectionType {
     Description: Attribute.Text & Attribute.Required;
     Content: Attribute.RichText & Attribute.Required;
     ExternalUrl: Attribute.String;
-    SquarespaceSlug: Attribute.String & Attribute.Required;
     Location: Attribute.String & Attribute.Required;
     EventDate: Attribute.Date & Attribute.Required;
     Language: Attribute.String;

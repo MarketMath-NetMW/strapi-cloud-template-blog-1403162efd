@@ -27,10 +27,6 @@
     "ExternalUrl": {
       "type": "string"
     },
-    "SquarespaceSlug": {
-      "type": "string",
-      "required": true
-    },
     "Location": {
       "type": "string",
       "required": true
