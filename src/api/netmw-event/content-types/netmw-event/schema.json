@@ -4,7 +4,7 @@
   "info": {
     "singularName": "netmw-event",
     "pluralName": "netmw-events",
-    "displayName": "NetMW Event",
+    "displayName": "NetMW event",
     "description": ""
   },
   "options": {
@@ -43,11 +43,18 @@
       "type": "string"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "netmw_event_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::netmw-event-type.netmw-event-type",
+      "inversedBy": "netmw_events"
     }
   }
 }
