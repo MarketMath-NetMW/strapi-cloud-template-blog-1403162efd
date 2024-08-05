@@ -35,7 +35,7 @@
       "type": "string",
       "required": true
     },
-    "Date": {
+    "EventDate": {
       "type": "date",
       "required": true
     },
@@ -55,6 +55,10 @@
       "relation": "manyToOne",
       "target": "api::netmw-event-type.netmw-event-type",
       "inversedBy": "netmw_events"
+    },
+    "PublishDate": {
+      "type": "date",
+      "required": true
     }
   }
 }
