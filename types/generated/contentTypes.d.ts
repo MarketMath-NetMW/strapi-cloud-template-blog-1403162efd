@@ -1065,9 +1065,7 @@ export interface ApiNetmwEventNetmwEvent extends Schema.CollectionType {
     Description: Attribute.Text & Attribute.Required;
     Content: Attribute.RichText & Attribute.Required;
     ExternalUrl: Attribute.String;
-    Location: Attribute.String & Attribute.Required;
     EventDate: Attribute.Date & Attribute.Required;
-    Language: Attribute.String;
     Image: Attribute.Media<'images'>;
     netmw_event_type: Attribute.Relation<
       'api::netmw-event.netmw-event',
@@ -1075,7 +1073,7 @@ export interface ApiNetmwEventNetmwEvent extends Schema.CollectionType {
       'api::netmw-event-type.netmw-event-type'
     >;
     PublishDate: Attribute.Date & Attribute.Required;
-    ExternalUrlButtonText: Attribute.String;
+    ExternalUrlText: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
