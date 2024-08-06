@@ -1075,6 +1075,7 @@ export interface ApiNetmwEventNetmwEvent extends Schema.CollectionType {
       'api::netmw-event-type.netmw-event-type'
     >;
     PublishDate: Attribute.Date & Attribute.Required;
+    ExternalUrlButtonText: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

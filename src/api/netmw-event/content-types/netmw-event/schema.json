@@ -55,6 +55,9 @@
     "PublishDate": {
       "type": "date",
       "required": true
+    },
+    "ExternalUrlButtonText": {
+      "type": "string"
     }
   }
 }
