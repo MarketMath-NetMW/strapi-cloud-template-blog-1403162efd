@@ -1020,6 +1020,7 @@ export interface ApiNetMwTutorialCategoryNetMwTutorialCategory
     singularName: 'net-mw-tutorial-category';
     pluralName: 'net-mw-tutorial-categories';
     displayName: 'NetMW tutorial category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1031,6 +1032,7 @@ export interface ApiNetMwTutorialCategoryNetMwTutorialCategory
       'oneToMany',
       'api::netmw-tutorial.netmw-tutorial'
     >;
+    Order: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

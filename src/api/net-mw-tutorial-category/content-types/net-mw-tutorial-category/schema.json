@@ -4,7 +4,8 @@
   "info": {
     "singularName": "net-mw-tutorial-category",
     "pluralName": "net-mw-tutorial-categories",
-    "displayName": "NetMW tutorial category"
+    "displayName": "NetMW tutorial category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,6 +21,10 @@
       "relation": "oneToMany",
       "target": "api::netmw-tutorial.netmw-tutorial",
       "mappedBy": "netmw_tutorial_category"
+    },
+    "Order": {
+      "type": "string",
+      "unique": false
     }
   }
 }
