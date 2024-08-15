@@ -44,6 +44,11 @@
       "type": "text",
       "required": true,
       "maxLength": 200
+    },
+    "netmw_roles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::netmw-role.netmw-role"
     }
   }
 }

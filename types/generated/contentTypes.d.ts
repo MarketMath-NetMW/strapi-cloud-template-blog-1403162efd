@@ -1129,6 +1129,36 @@ export interface ApiNetmwEventTypeNetmwEventType extends Schema.CollectionType {
   };
 }
 
+export interface ApiNetmwRoleNetmwRole extends Schema.CollectionType {
+  collectionName: 'netmw_roles';
+  info: {
+    singularName: 'netmw-role';
+    pluralName: 'netmw-roles';
+    displayName: 'NetMW role';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Role: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::netmw-role.netmw-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::netmw-role.netmw-role',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
   collectionName: 'netmw_tutorials';
   info: {
@@ -1159,6 +1189,11 @@ export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 200;
       }>;
+    netmw_roles: Attribute.Relation<
+      'api::netmw-tutorial.netmw-tutorial',
+      'oneToMany',
+      'api::netmw-role.netmw-role'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1317,6 +1352,7 @@ declare module '@strapi/types' {
       'api::net-mw-tutorial-category.net-mw-tutorial-category': ApiNetMwTutorialCategoryNetMwTutorialCategory;
       'api::netmw-event.netmw-event': ApiNetmwEventNetmwEvent;
       'api::netmw-event-type.netmw-event-type': ApiNetmwEventTypeNetmwEventType;
+      'api::netmw-role.netmw-role': ApiNetmwRoleNetmwRole;
       'api::netmw-tutorial.netmw-tutorial': ApiNetmwTutorialNetmwTutorial;
       'api::netmw-tutorial-tag.netmw-tutorial-tag': ApiNetmwTutorialTagNetmwTutorialTag;
       'api::news-item.news-item': ApiNewsItemNewsItem;
