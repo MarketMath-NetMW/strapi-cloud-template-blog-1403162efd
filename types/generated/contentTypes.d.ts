@@ -1027,11 +1027,6 @@ export interface ApiNetMwTutorialCategoryNetMwTutorialCategory
   };
   attributes: {
     Category: Attribute.String & Attribute.Required;
-    netmw_tutorials: Attribute.Relation<
-      'api::net-mw-tutorial-category.net-mw-tutorial-category',
-      'oneToMany',
-      'api::netmw-tutorial.netmw-tutorial'
-    >;
     Order: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1179,9 +1174,9 @@ export interface ApiNetmwTutorialNetmwTutorial extends Schema.CollectionType {
       'api::netmw-tutorial-tag.netmw-tutorial-tag'
     >;
     Thumbnail: Attribute.Media<'images'> & Attribute.Required;
-    netmw_tutorial_category: Attribute.Relation<
+    netmw_tutorial_categories: Attribute.Relation<
       'api::netmw-tutorial.netmw-tutorial',
-      'manyToOne',
+      'oneToMany',
       'api::net-mw-tutorial-category.net-mw-tutorial-category'
     >;
     Description: Attribute.Text &

@@ -34,11 +34,10 @@
         "images"
       ]
     },
-    "netmw_tutorial_category": {
+    "netmw_tutorial_categories": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::net-mw-tutorial-category.net-mw-tutorial-category",
-      "inversedBy": "netmw_tutorials"
+      "relation": "oneToMany",
+      "target": "api::net-mw-tutorial-category.net-mw-tutorial-category"
     },
     "Description": {
       "type": "text",

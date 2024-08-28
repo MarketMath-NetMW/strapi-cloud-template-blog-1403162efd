@@ -16,12 +16,6 @@
       "type": "string",
       "required": true
     },
-    "netmw_tutorials": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::netmw-tutorial.netmw-tutorial",
-      "mappedBy": "netmw_tutorial_category"
-    },
     "Order": {
       "type": "string",
       "unique": false
