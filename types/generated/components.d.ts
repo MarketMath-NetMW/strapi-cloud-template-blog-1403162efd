@@ -1,4 +1,4 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Attribute, Schema } from '@strapi/strapi';
 
 export interface SharedMedia extends Schema.Component {
   collectionName: 'components_shared_media';
@@ -18,17 +18,17 @@ export interface SharedQuote extends Schema.Component {
     icon: 'indent';
   };
   attributes: {
-    title: Attribute.String;
     body: Attribute.Text;
+    title: Attribute.String;
   };
 }
 
 export interface SharedRichText extends Schema.Component {
   collectionName: 'components_shared_rich_texts';
   info: {
+    description: '';
     displayName: 'Rich text';
     icon: 'align-justify';
-    description: '';
   };
   attributes: {
     body: Attribute.RichText;
@@ -38,14 +38,14 @@ export interface SharedRichText extends Schema.Component {
 export interface SharedSeo extends Schema.Component {
   collectionName: 'components_shared_seos';
   info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
     description: '';
+    displayName: 'Seo';
+    icon: 'allergies';
+    name: 'Seo';
   };
   attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
     metaDescription: Attribute.Text & Attribute.Required;
+    metaTitle: Attribute.String & Attribute.Required;
     shareImage: Attribute.Media<'images'>;
   };
 }
@@ -53,9 +53,9 @@ export interface SharedSeo extends Schema.Component {
 export interface SharedSlider extends Schema.Component {
   collectionName: 'components_shared_sliders';
   info: {
+    description: '';
     displayName: 'Slider';
     icon: 'address-book';
-    description: '';
   };
   attributes: {
     files: Attribute.Media<'images', true>;

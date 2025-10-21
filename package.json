@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "@strapi/plugin-graphql": "^4.24.4",
-    "@strapi/plugin-i18n": "4.24.4",
-    "@strapi/plugin-users-permissions": "4.24.4",
-    "@strapi/strapi": "4.24.4",
+    "@strapi/plugin-i18n": "4.25.24",
+    "@strapi/plugin-users-permissions": "4.25.24",
+    "@strapi/strapi": "4.25.24",
     "better-sqlite3": "11.0.0",
     "fs-extra": "^11.2.0",
     "lodash.set": "^4.3.2",
